@@ -80,7 +80,7 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
 //method that traverses through graph (calls passed in function once on each node)
-  var allNodes = Object.keys(this.graphList)
+  var allNodes = Object.keys(this.graphList);
   _.each(allNodes, function(item) {
     cb(item);
   });
