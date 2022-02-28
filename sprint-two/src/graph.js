@@ -11,6 +11,7 @@ Graph.prototype.addNode = function(node) {
   if (!this.graphList[node]) {
     this.graphList[node] = [];
   }
+  // Time complexity: O(1)
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 };
 
@@ -24,6 +25,7 @@ Graph.prototype.contains = function(node) {
       return true;
     }
   }
+  // Time complexity O(N)
   //return boolean if found in graph};
   return false;
 };
@@ -54,6 +56,7 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
   }
   return false;
 };
+// Time complexity: O(N)
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
@@ -63,6 +66,7 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
     this.graphList[toNode].push(fromNode);
   }
   //create an edge connection between two nodes if both present};
+  // O(1)
 };
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
@@ -74,7 +78,7 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
     this.graphList[toNode].splice(indexToDelete2, 1);
 
   }
-
+// O(N) + O(N) + O(N) + O(N) + O(N)
 };
 
 // Pass in a callback which will be executed on each node of the graph.
@@ -85,6 +89,7 @@ Graph.prototype.forEachNode = function(cb) {
     cb(item);
   });
 };
+// callback processing time is a, time complexity would be O(N) * a.
 
 /*
  * Complexity: What is the time complexity of the above functions?
