@@ -30,26 +30,29 @@ bTreeProto.insert = function(value) {
 bTreeProto.contains = function(target) {
   if (this.value === target) {
     return true;
-  } else {
-    if (this.value > target) {
-      if (this.left.contains(target) && this.left) {
-        return true;
-      }
-    } else if (this.value < target) {
-      if (this.right.contains(target) && this.right) {
-        return true;
-      }
-    }
-    return false;
+  } else if (this.value > target && this.left) {
+    return this.left.contains(target);
+  } else if (this.value < target && this.right) {
+    return this.right.contains(target);
   }
+  return false;
 };
 
 bTreeProto.depthFirstLog = function(callBack) {
+
+  callBack(this.value);
+
+  if (this.left) {
+    this.left.depthFirstLog(callBack);
+  }
+
+  if (this.right) {
+    this.right.depthFirstLog(callBack);
+  }
 
 };
 
 
 /*
  * Complexity: What is the time complexity of the above functions?
-
-var Node  */
+*/
